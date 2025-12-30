@@ -134,7 +134,7 @@ One group of problems for which recursive solutions seem very natural are proble
 > 
 > ```c
 > /*
->  * Counts the number of times ch occurs in string str.
+>  * Counts the number of times <ch> occurs in string str.
 >  * Pre: Letter ch and string str are defined.
 >  */
 > int
@@ -171,10 +171,10 @@ To trace a recursive function that returns a value, we can draw an _activation f
 
 > [!example] **Tracing a Recursive Multiplication**
 > 
-> To trace the call `multiply($6$, $3$)`, we would generate a sequence of activation frames:
+> To trace the call `multiply(6, 3)`, we would generate a sequence of activation frames:
 > 
-> 1. **First Call:** `$m=6$, $n=3$` - makes recursive call `multiply($6$, $2$)`
-> 2. **Second Call:** `$m=6$, $n=2$` - makes recursive call `multiply($6$, $1$)`
+> 1. **First Call:** `m=6, n=3` - makes recursive call `multiply(6, 2)`
+> 2. **Second Call:** `$m=6$, $n=2$` - makes recursive call `multiply(6, 1)`
 > 3. **Third Call:** `$m=6$, $n=1$` - returns value $6$ (simple case)
 > 
 > The recursion then "unwinds" as each call receives the result from the one it made:
