@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CHP 2 - Overview of C.md",
+                "file": "Quickrefs/C Programming Cheatsheet.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CHP 2 - Overview of C"
+              "title": "C Programming Cheatsheet"
             }
           }
         ]
@@ -183,8 +183,15 @@
       "bases:Create new base": false
     }
   },
-  "active": "db71786f8f0375a2",
+  "active": "178e75dceb997a18",
   "lastOpenFiles": [
+    "Quickrefs/Quick Ref.md",
+    "Quickrefs/C Programming Cheatsheet.md",
+    "Quickrefs",
+    "K10 CHP 10 - Structs.md",
+    "K 7&8 CHP 7 - Array Pointers.md",
+    "CHP 4 - Selection Structures - IF and Switch.md",
+    "CHP 2 - Overview of C.md",
     "Pictures/K13 CHP 9 - Recursion/Pasted image 20251126211300.png",
     "Pictures/K13 CHP 9 - Recursion/Pasted image 20251126211219.png",
     "Pictures/K13 CHP 9 - Recursion/Pasted image 20251126211027.png",
@@ -195,7 +202,6 @@
     "Pictures/K13 CHP 9 - Recursion/Pasted image 20251126201239.png",
     "Pictures/K13 CHP 9 - Recursion/Pasted image 20251126200429.png",
     "Pictures/K13 CHP 9 - Recursion/Pasted image 20251126200419.png",
-    "Pictures/K13 CHP 9 - Recursion/Pasted image 20251126200408.png",
     "Pictures/K13 CHP 9 - Recursion",
     "Pictures/K10 CHP 10 - Structs",
     "Pictures/K 9 CHP 8 - Strings",
@@ -205,19 +211,14 @@
     "Pictures/CHP 5 - Repetition & Loop Statements",
     "Pictures/CHP 4 - Selection Structures - IF and Switch",
     "Pictures/CHP 2 - Overview of C",
-    "Pictures/CHP 3 - Top-Down Design with Functions",
     "Lektion 1 - 050925.md",
     "K13 CHP 9 - Recursion.md",
-    "K10 CHP 10 - Structs.md",
     "K 11 CHP 11 - Text and Binary- File Pointers.md",
     "K 9 CHP 8 - Strings.md",
-    "K 7&8 CHP 7 - Array Pointers.md",
     "K 7 - Slides - Datatyper.md",
     "CHP 6 - Pointers and Modular Programming.md",
     "CHP 5 - Repetition & Loop Statements.md",
-    "CHP 4 - Selection Structures - IF and Switch.md",
     "CHP 3 - Top-Down Design with Functions.md",
-    "CHP 2 - Overview of C.md",
     "Pasted image 20250917192209.png.md"
   ]
 }
