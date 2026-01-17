@@ -11,6 +11,9 @@ plugins:
   - copyCode
   - runCode
 ---
+HUSK ;
+HUSK mellemrun i arrays?
+
 1. [[#Getting Started|Getting Started]]
 	1. [[#Getting Started#hello.c {.row-span-2}|hello.c {.row-span-2}]]
 	2. [[#Getting Started#Variables {.row-span-2}|Variables {.row-span-2}]]
