@@ -1,28 +1,23 @@
-#c-language #programming #cheatsheet #computer-science
-
 1. [[#1. Foundations|1. Foundations]]
 	1. [[#1. Foundations#1.1. Your First Program: "Hello, World!"|1.1. Your First Program: "Hello, World!"]]
 	2. [[#1. Foundations#1.2. Basic Data Types|1.2. Basic Data Types]]
 	3. [[#1. Foundations#1.3. Variables and Constants|1.3. Variables and Constants]]
 	4. [[#1. Foundations#1.4. Operators|1.4. Operators]]
-		1. [[#1.4. Operators#Arithmetic Operators|Arithmetic Operators]]
-		2. [[#1.4. Operators#Relational & Logical Operators|Relational & Logical Operators]]
+	5. [[#1. Foundations#1.5. Standard Input|1.5. Standard Input]]
+	6. [[#1. Foundations#1.6. Type Casting|1.6. Type Casting]]
+	7. [[#1. Foundations#1.7. The Compilation Process|1.7. The Compilation Process]]
 2. [[#2. Control Flow|2. Control Flow]]
 	1. [[#2. Control Flow#2.1. Selective (Conditional) Structures|2.1. Selective (Conditional) Structures]]
-		1. [[#2.1. Selective (Conditional) Structures#`if-else if-else`|`if-else if-else`]]
-		2. [[#2.1. Selective (Conditional) Structures#`switch`|`switch`]]
 	2. [[#2. Control Flow#2.2. Iterative (Looping) Structures|2.2. Iterative (Looping) Structures]]
-		1. [[#2.2. Iterative (Looping) Structures#`for` loop|`for` loop]]
-		2. [[#2.2. Iterative (Looping) Structures#`while` loop|`while` loop]]
-		3. [[#2.2. Iterative (Looping) Structures#`do-while` loop|`do-while` loop]]
 3. [[#3. Functions|3. Functions]]
-	1. [[#3. Functions#3.1. Function Parameters: Pass-by-Value|3.1. Function Parameters: Pass-by-Value]]
-	2. [[#3. Functions#3.2. Function Parameters: Simulating Pass-by-Reference|3.2. Function Parameters: Simulating Pass-by-Reference]]
-		1. [[#3.2. Function Parameters: Simulating Pass-by-Reference#Example: The `swap` Function|Example: The `swap` Function]]
-		2. [[#3.2. Function Parameters: Simulating Pass-by-Reference#How It Works:|How It Works:]]
+	1. [[#3. Functions#3.1. Function Prototypes and Declarations|3.1. Function Prototypes and Declarations]]
+	2. [[#3. Functions#3.2. Function Parameters: Pass-by-Value|3.2. Function Parameters: Pass-by-Value]]
+	3. [[#3. Functions#3.3. Function Parameters: Simulating Pass-by-Reference|3.3. Function Parameters: Simulating Pass-by-Reference]]
 4. [[#4. Arrays and Strings|4. Arrays and Strings]]
 	1. [[#4. Arrays and Strings#4.1. Arrays|4.1. Arrays]]
 	2. [[#4. Arrays and Strings#4.2. Strings|4.2. Strings]]
+	3. [[#4. Arrays and Strings#4.3. Multidimensional Arrays|4.3. Multidimensional Arrays]]
+	4. [[#4. Arrays and Strings#4.4. Passing Multidimensional Arrays to Functions|4.4. Passing Multidimensional Arrays to Functions]]
 5. [[#5. Pointers (The Core of Advanced C)|5. Pointers (The Core of Advanced C)]]
 	1. [[#5. Pointers (The Core of Advanced C)#5.1. Declaring and Using Pointers|5.1. Declaring and Using Pointers]]
 	2. [[#5. Pointers (The Core of Advanced C)#5.2. Pointers and Arrays|5.2. Pointers and Arrays]]
@@ -39,6 +34,7 @@
 10. [[#10. Advanced Pointer Concepts|10. Advanced Pointer Concepts]]
 	1. [[#10. Advanced Pointer Concepts#10.1. Pointers to Pointers (`**`)|10.1. Pointers to Pointers (`**`)]]
 	2. [[#10. Advanced Pointer Concepts#10.2. `const` and Pointers|10.2. `const` and Pointers]]
+	3. [[#10. Advanced Pointer Concepts#10.3. Interpreting Complex Declarations|10.3. Interpreting Complex Declarations]]
 11. [[#11. Recursion|11. Recursion]]
 12. [[#12. The C Preprocessor|12. The C Preprocessor]]
 	1. [[#12. The C Preprocessor#12.1. Macro Functions|12.1. Macro Functions]]
@@ -49,8 +45,10 @@
 	2. [[#14. Type Definitions (`typedef`) and Enumerations (`enum`)#14.2. `enum`|14.2. `enum`]]
 15. [[#15. Function Pointers|15. Function Pointers]]
 16. [[#16. The C Standard Library (A Deeper Look)|16. The C Standard Library (A Deeper Look)]]
-	1. [[#16. The C Standard Library (A Deeper Look)#16.1. `<stdlib.h>` - General Utilities|16.1. `<stdlib.h>` - General Utilities]]
-	2. [[#16. The C Standard Library (A Deeper Look)#16.2. `<math.h>` - Mathematics|16.2. `<math.h>` - Mathematics]]
+	1. [[#16. The C Standard Library (A Deeper Look)#16.1. `<stdio.h>` - Standard Input/Output|16.1. `<stdio.h>` - Standard Input/Output]]
+	2. [[#16. The C Standard Library (A Deeper Look)#16.2. `<stdlib.h>` - General Utilities|16.2. `<stdlib.h>` - General Utilities]]
+	3. [[#16. The C Standard Library (A Deeper Look)#16.3. `<math.h>` - Mathematics|16.3. `<math.h>` - Mathematics]]
+	4. [[#16. The C Standard Library (A Deeper Look)#16.4. `<ctype.h>` - Character Handling|16.4. `<ctype.h>` - Character Handling]]
 17. [[#17. Command-Line Arguments|17. Command-Line Arguments]]
 18. [[#18. Advanced Error Handling|18. Advanced Error Handling]]
 19. [[#19. Unions (`union`)|19. Unions (`union`)]]
@@ -65,6 +63,8 @@
 25. [[#25. Variable Scoping and Storage Duration|25. Variable Scoping and Storage Duration]]
 	1. [[#25. Variable Scoping and Storage Duration#25.1. Scope|25.1. Scope]]
 	2. [[#25. Variable Scoping and Storage Duration#25.2. Storage Duration & Specifiers|25.2. Storage Duration & Specifiers]]
+	3. [[#25. Variable Scoping and Storage Duration#25.3. Other Storage Class Specifiers|25.3. Other Storage Class Specifiers]]
+	4. [[#25. Variable Scoping and Storage Duration#25.4. Memory Layout of a C Program|25.4. Memory Layout of a C Program]]
 26. [[#26. Number Systems: Binary and Hexadecimal|26. Number Systems: Binary and Hexadecimal]]
 	1. [[#26. Number Systems: Binary and Hexadecimal#26.1. Binary (Base 2)|26.1. Binary (Base 2)]]
 	2. [[#26. Number Systems: Binary and Hexadecimal#26.2. Hexadecimal (Base 16)|26.2. Hexadecimal (Base 16)]]
@@ -80,6 +80,26 @@
 ### 1.1. Your First Program: "Hello, World!"
 
 Every C journey starts here. This program demonstrates the basic structure, including the `main` function, header inclusion, and a function call to print output.
+
+#### Generic Syntax
+```c
+#include <header_file.h>
+
+return_type main() {
+    // Code statements
+    function_call("arguments");
+    
+    return return_value;
+}
+```
+
+#### Syntax Breakdown
+- `#include <header_file.h>`: Preprocessor directive to include a header file
+- `return_type`: Type of value the function returns (int for main)
+- `main()`: Entry point of the program
+- `{}`: Block containing the function's code
+- `function_call()`: Statement calling a function
+- `return return_value`: Statement returning a value from the function
 
 ```c
 // #include is a preprocessor directive that tells the compiler to include
@@ -101,6 +121,16 @@ int main() {
 ### 1.2. Basic Data Types
 
 C is a statically-typed language, meaning you must declare the type of every variable.
+
+#### Generic Syntax
+```c
+data_type variable_name = initial_value;
+```
+
+#### Syntax Breakdown
+- `data_type`: Type of data the variable will hold (int, char, float, etc.)
+- `variable_name`: Identifier for the variable
+- `= initial_value`: Optional initialization of the variable
 
 > [!note] Signed vs. Unsigned
 > By default, integer types (`int`, `short`, `long`) are **signed**, meaning they can hold both positive and negative numbers. Prepend `unsigned` to make them only hold non-negative numbers, effectively doubling the positive range.
@@ -137,6 +167,27 @@ int main() {
 - **Variables**: Named storage locations whose values can be changed.
 - **Constants**: Named storage locations whose values cannot be changed after initialization.
 
+#### Generic Syntax
+```c
+// Variable declaration
+data_type variable_name;
+
+// Variable initialization
+data_type variable_name = initial_value;
+
+// Constant declaration using const keyword
+const data_type CONSTANT_NAME = value;
+
+// Constant declaration using preprocessor directive
+#define CONSTANT_NAME value
+```
+
+#### Syntax Breakdown
+- `data_type`: Type of data the variable will hold
+- `variable_name`: Identifier for the variable
+- `CONSTANT_NAME`: Identifier for the constant (often in uppercase)
+- `#define`: Preprocessor directive to create a macro constant
+
 ```c
 #include <stdio.h>
 
@@ -167,6 +218,16 @@ int main() {
 #### Arithmetic Operators
 `+` (addition), `-` (subtraction), `*` (multiplication), `/` (division), `%` (modulo/remainder).
 
+#### Generic Syntax
+```c
+result = operand1 operator operand2;
+```
+
+#### Syntax Breakdown
+- `result`: Variable to store the result
+- `operand1`, `operand2`: Values or variables being operated on
+- `operator`: One of +, -, *, /, or %
+
 ```c
 int a = 10, b = 4;
 int sum = a + b;      // 14
@@ -178,6 +239,23 @@ int rem = a % b;      // 2
 
 #### Relational & Logical Operators
 Used in conditions. Relational operators (`==`, `!=`, `>`, `<`, `>=`, `<=`) compare two values. Logical operators (`&&` for AND, `||` for OR, `!` for NOT) combine conditions.
+
+#### Generic Syntax
+```c
+// Relational operators
+result = operand1 relational_operator operand2;
+
+// Logical operators
+result = condition1 logical_operator condition2;
+result = logical_operator condition;
+```
+
+#### Syntax Breakdown
+- `result`: Boolean result (0 for false, non-zero for true)
+- `operand1`, `operand2`: Values or variables being compared
+- `relational_operator`: One of ==, !=, >, <, >=, <=
+- `condition1`, `condition2`: Boolean expressions
+- `logical_operator`: One of &&, ||, !
 
 ```c
 int x = 5;
@@ -194,6 +272,157 @@ int y = 10;
 !(x == y)         // true (1) because (x == y) is false
 ```
 
+### 1.5. Standard Input
+
+Just as `printf` is used for output, `scanf` and other functions are used to read input from the user via the keyboard.
+
+#### Generic Syntax
+```c
+// Formatted input
+scanf("format_specifiers", &variable1, &variable2);
+
+// Character input
+char variable = getchar();
+
+// String input (unsafe)
+gets(string_variable);
+```
+
+#### Syntax Breakdown
+- `scanf()`: Reads formatted input from the standard input (keyboard).
+- `"format_specifiers"`: A string that tells `scanf` what type of data to expect (e.g., `%d` for int, `%c` for char, `%s` for string).
+- `&variable`: The **address** of the variable where the input will be stored. `&` is the "address-of" operator. It is NOT needed for strings (character arrays) because the array name already acts as a pointer.
+- `getchar()`: Reads a single character from input and returns it.
+- `gets()`: Reads a line of input into a string. **WARNING:** This function is unsafe and has been deprecated because it does not check the buffer size, leading to buffer overflows. Use `fgets` instead.
+
+```c
+#include <stdio.h>
+
+int main() {
+    int age;
+    char initial;
+    char name[50];
+
+    printf("Enter your age: ");
+    // Use %d to read an integer. Pass the address of 'age'.
+    scanf("%d", &age);
+
+    // Clear the input buffer. scanf leaves a newline character, which
+    // would be immediately read by the next getchar() or fgets().
+    while (getchar() != '\n');
+
+    printf("Enter your initial: ");
+    // Use %c to read a character. Pass the address of 'initial'.
+    scanf("%c", &initial);
+
+    // Clear the input buffer again.
+    while (getchar() != '\n');
+
+    printf("Enter your full name: ");
+    // Use %s to read a string. 'name' is an array, so it acts like a pointer.
+    // No '&' is needed.
+    scanf("%s", name); // Note: This stops at the first whitespace.
+
+    printf("\n--- Summary ---\n");
+    printf("Name: %s\n", name);
+    printf("Age: %d\n", age);
+    printf("Initial: %c\n", initial);
+
+    return 0;
+}
+```
+
+### 1.6. Type Casting
+
+Type casting is the process of explicitly converting a value from one data type to another. You do this by placing the desired target type in parentheses `()` before the value or variable you want to convert.
+
+#### Generic Syntax
+```c
+(target_type) value
+```
+
+#### Syntax Breakdown
+- `target_type`: The data type to convert to
+- `value`: The value or variable to be converted
+
+#### Why Use Type Casting?
+
+1.  **To Handle `void*` Pointers**: Functions like `malloc` and `calloc` return a generic pointer (`void*`) that can point to any data type. You must cast it to the specific pointer type you need.
+2.  **To Control Division**: In C, if you divide two integers, the result is an integer (the fractional part is truncated). Casting one of the integers to a `float` or `double` before the division forces floating-point division.
+3.  **To Access Raw Memory**: In advanced cases, like with `qsort` or low-level hardware programming, you might need to treat a block of memory as a different type than it was originally declared as.
+
+#### Examples
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // --- Example 1: Floating-Point Division ---
+    int a = 5, b = 2;
+    int result_int = a / b;           // Integer division
+    double result_float = (double)a / b; // Cast 'a' to double first
+
+    printf("Integer division (5 / 2): %d\n", result_int);     // Prints 2
+    printf("Float division (5 / 2): %.1f\n", result_float); // Prints 2.5
+
+    // --- Example 2: Casting the result of malloc ---
+    // malloc returns a void* (generic pointer). We cast it to an int*.
+    int *ptr = (int*)malloc(sizeof(int));
+    if (ptr != NULL) {
+        *ptr = 100;
+        printf("Dynamically allocated value: %d\n", *ptr);
+        free(ptr);
+    }
+
+    return 0;
+}
+```
+
+> [!note] Implicit vs. Explicit Casting
+> C also performs **implicit** (automatic) type casting, for example, when you assign an `int` to a `double`. However, relying on implicit casting can sometimes lead to unexpected results or loss of data (e.g., assigning a `double` to an `int` truncates the decimal). **Explicit casting** with `(type)` makes your intentions clear and prevents compiler warnings.
+
+### 1.7. The Compilation Process
+
+Understanding how your C code becomes an executable program is fundamental. The process involves four main stages.
+
+#### Generic Syntax
+```bash
+# Full compilation in one step
+gcc source_file.c -o executable_name
+
+# Step-by-step compilation
+gcc -E source_file.c -o source_file.i      # Preprocessing
+gcc -S source_file.i -o source_file.s      # Compilation
+gcc -c source_file.s -o source_file.o      # Assembly
+gcc source_file.o -o executable_name        # Linking
+```
+
+#### Syntax Breakdown
+- `gcc`: The GNU Compiler Collection.
+- `-E`: Run only the preprocessor.
+- `-S`: Compile to assembly language.
+- `-c`: Compile to object code (machine code, but not yet linked).
+- `-o`: Specify the output file name.
+
+#### The Four Stages
+
+1.  **Preprocessing**: The preprocessor handles directives like `#include` (which brings in header files) and `#define` (which performs macro substitution). The output is a "pure" C file (`.i`).
+2.  **Compilation**: The compiler takes the preprocessed code and translates it into assembly language, a low-level, human-readable representation of the machine code. The output is an assembly file (`.s`).
+3.  **Assembly**: The assembler takes the assembly code and converts it into machine code (binary instructions). This creates an object file (`.o`). At this stage, the code is valid but not yet a complete program.
+4.  **Linking**: The linker takes one or more object files and combines them with any necessary library code (e.g., the code for `printf`) to create the final executable file. It resolves references between files.
+
+```c
+// This simple "Hello, World!" program goes through all these stages
+// when you compile it with: gcc my_program.c -o my_program
+#include <stdio.h> // Preprocessor inserts stdio.h content here
+
+int main() {      // Compiler translates this to assembly
+    printf("Hello, World!\n"); // Linker connects this call to its definition
+    return 0;
+}
+```
+
 ## 2. Control Flow
 
 ### 2.1. Selective (Conditional) Structures
@@ -201,6 +430,25 @@ int y = 10;
 These structures allow the program to execute different blocks of code based on a condition.
 
 #### `if-else if-else`
+
+##### Generic Syntax
+```c
+if (condition1) {
+    // Code to execute if condition1 is true
+} else if (condition2) {
+    // Code to execute if condition1 is false and condition2 is true
+} else {
+    // Code to execute if all conditions are false
+}
+```
+
+##### Syntax Breakdown
+- `if`: Keyword to start the conditional structure
+- `condition1`, `condition2`: Boolean expressions to evaluate
+- `{}`: Block containing code to execute for each condition
+- `else if`: Keyword for additional conditions
+- `else`: Keyword for the default case when all conditions are false
+
 ```c
 #include <stdio.h>
 
@@ -222,6 +470,29 @@ int main() {
 
 #### `switch`
 A `switch` statement is a cleaner way to compare a single variable against multiple constant values.
+
+##### Generic Syntax
+```c
+switch (expression) {
+    case constant1:
+        // Code to execute if expression equals constant1
+        break;
+    case constant2:
+        // Code to execute if expression equals constant2
+        break;
+    default:
+        // Code to execute if expression doesn't match any case
+        break;
+}
+```
+
+##### Syntax Breakdown
+- `switch`: Keyword to start the switch structure
+- `expression`: Value to compare against cases
+- `case`: Keyword followed by a constant value to match
+- `constant1`, `constant2`: Constant values to compare with expression
+- `break`: Keyword to exit the switch block (optional but recommended)
+- `default`: Keyword for the default case when no match is found
 
 ```c
 #include <stdio.h>
@@ -255,6 +526,20 @@ Loops execute a block of code repeatedly.
 #### `for` loop
 Ideal when you know exactly how many times you want to loop.
 
+##### Generic Syntax
+```c
+for (initialization; condition; increment) {
+    // Code to execute in each iteration
+}
+```
+
+##### Syntax Breakdown
+- `for`: Keyword to start the for loop
+- `initialization`: Statement executed once before the loop starts
+- `condition`: Boolean expression checked before each iteration
+- `increment`: Statement executed after each iteration
+- `{}`: Block containing code to execute in each iteration
+
 ```c
 #include <stdio.h>
 
@@ -269,6 +554,18 @@ int main() {
 
 #### `while` loop
 Ideal when you want to loop as long as a condition is true, and you don't know the number of iterations beforehand.
+
+##### Generic Syntax
+```c
+while (condition) {
+    // Code to execute while condition is true
+}
+```
+
+##### Syntax Breakdown
+- `while`: Keyword to start the while loop
+- `condition`: Boolean expression checked before each iteration
+- `{}`: Block containing code to execute while condition is true
 
 ```c
 #include <stdio.h>
@@ -285,6 +582,19 @@ int main() {
 
 #### `do-while` loop
 Similar to `while`, but the condition is checked *after* the loop body executes. This guarantees the loop runs at least once.
+
+##### Generic Syntax
+```c
+do {
+    // Code to execute at least once and while condition is true
+} while (condition);
+```
+
+##### Syntax Breakdown
+- `do`: Keyword to start the do-while loop
+- `{}`: Block containing code to execute
+- `while`: Keyword followed by the condition to check after each iteration
+- `condition`: Boolean expression checked after each iteration
 
 ```c
 #include <stdio.h>
@@ -303,9 +613,68 @@ int main() {
 
 Functions are reusable blocks of code that perform a specific task.
 
-### 3.1. Function Parameters: Pass-by-Value
+### 3.1. Function Prototypes and Declarations
+
+A **function prototype** (or declaration) tells the compiler about a function's name, return type, and parameters *before* it is used. This allows you to call the function before it is defined in the file.
+
+#### Generic Syntax
+```c
+// Function prototype (declaration)
+return_type function_name(parameter_type1 parameter_name1, parameter_type2 parameter_name2);
+
+// Function definition
+return_type function_name(parameter_type1 parameter_name1, parameter_type2 parameter_name2) {
+    // Function body
+    return return_value;
+}
+```
+
+#### Syntax Breakdown
+- `return_type`: Type of value the function returns
+- `function_name`: Identifier for the function
+- `parameter_type`, `parameter_name`: Type and name of each parameter
+- `return_value`: Value returned by the function
+
+```c
+#include <stdio.h>
+
+// Function prototype for 'add'. This allows 'main' to call 'add'
+// even though 'add's definition comes after 'main'.
+int add(int a, int b);
+
+int main() {
+    int sum = add(5, 3);
+    printf("Sum is: %d\n", sum); // Output: Sum is: 8
+    return 0;
+}
+
+// Function definition for 'add'
+int add(int a, int b) {
+    return a + b;
+}
+```
+
+### 3.2. Function Parameters: Pass-by-Value
 
 In C, arguments are passed to functions **by value**. This means the function receives a *copy* of the argument's value, not the original variable itself. Changing the parameter inside the function does **not** affect the original variable.
+
+#### Generic Syntax
+```c
+return_type function_name(parameter_type parameter_name) {
+    // Function body
+    return return_value;
+}
+
+// Calling the function
+function_name(argument_value);
+```
+
+#### Syntax Breakdown
+- `return_type`: Type of value the function returns
+- `function_name`: Identifier for the function
+- `parameter_type`: Type of the parameter
+- `parameter_name`: Identifier for the parameter
+- `argument_value`: Value passed to the function when called
 
 ```c
 #include <stdio.h>
@@ -327,13 +696,28 @@ int main() {
 }
 ```
 > [!important]
-> To modify a variable from inside a function, you must pass a **pointer** to that variable. See section [[#5.4. Pointers and Functions]].
+> To modify a variable from inside a function, you must pass a **pointer** to that variable. See section [[#3.3. Function Parameters: Simulating Pass-by-Reference]].
 
-### 3.2. Function Parameters: Simulating Pass-by-Reference
+### 3.3. Function Parameters: Simulating Pass-by-Reference
 
 While C technically only supports **pass-by-value**, you can simulate **pass-by-reference** by passing pointers to variables. Instead of passing a copy of the variable's value, you pass a copy of its memory address. The function can then use this address to access and modify the original variable in the calling function's scope.
 
-This is the primary way to write functions that need to modify more than one piece of data or return complex data structures.
+#### Generic Syntax
+```c
+void function_name(parameter_type* parameter_name) {
+    // Function body
+    *parameter_name = new_value; // Modify the original variable
+}
+
+// Calling the function
+function_name(&variable_name);
+```
+
+#### Syntax Breakdown
+- `parameter_type*`: Pointer type parameter
+- `parameter_name`: Pointer parameter name
+- `*parameter_name`: Dereferencing the pointer to access the original variable
+- `&variable_name`: Address of the variable being passed
 
 #### Example: The `swap` Function
 
@@ -388,6 +772,28 @@ int main() {
 
 An array is a collection of elements of the same data type stored in contiguous memory locations.
 
+#### Generic Syntax
+```c
+// Declaration
+data_type array_name[size];
+
+// Declaration with initialization
+data_type array_name[size] = {value1, value2, ..., valueN};
+
+// Accessing elements
+array_name[index]
+
+// Modifying elements
+array_name[index] = new_value;
+```
+
+#### Syntax Breakdown
+- `data_type`: Type of data the array elements will hold
+- `array_name`: Identifier for the array
+- `size`: Number of elements in the array
+- `{}`: Optional initialization values
+- `index`: Zero-based position of an element in the array
+
 ```c
 #include <stdio.h>
 
@@ -415,6 +821,24 @@ int main() {
 
 In C, a string is a null-terminated array of characters. The null character (`\0`) marks the end of the string.
 
+#### Generic Syntax
+```c
+// Declaration with initialization
+char string_name[] = "string_value";
+
+// Declaration with explicit size
+char string_name[size] = "string_value";
+
+// Declaration with character array
+char string_name[] = {'c', 'h', 'a', 'r', 's', '\0'};
+```
+
+#### Syntax Breakdown
+- `string_name`: Identifier for the string
+- `size`: Number of characters in the string (including null terminator)
+- `"string_value"`: String literal (automatically null-terminated)
+- `'\0'`: Null character marking the end of the string
+
 ```c
 #include <stdio.h>
 #include <string.h> // Required for string manipulation functions
@@ -440,6 +864,123 @@ int main() {
 }
 ```
 
+### 4.3. Multidimensional Arrays
+
+Arrays can have more than one dimension, creating a matrix-like structure. The most common is a 2D array.
+
+#### Generic Syntax
+```c
+// Declaration
+data_type array_name[rows][cols];
+
+// Declaration with initialization
+data_type array_name[rows][cols] = {
+    {r0c0, r0c1, ...},
+    {r1c0, r1c1, ...},
+    // ...
+};
+
+// Accessing elements
+array_name[row_index][col_index]
+```
+
+#### Syntax Breakdown
+- `rows`: Number of rows in the array
+- `cols`: Number of columns in the array
+- `row_index`, `col_index`: Zero-based indices to access an element
+
+```c
+#include <stdio.h>
+
+int main() {
+    // Declare and initialize a 2x3 matrix (2 rows, 3 columns)
+    int matrix[2][3] = {
+        {1, 2, 3},
+        {4, 5, 6}
+    };
+
+    // Access an element (row 1, column 2)
+    printf("Element at [1][2]: %d\n", matrix[1][2]); // Output: 6
+
+    // Modify an element (row 0, column 1)
+    matrix[0][1] = 20;
+    printf("Element at [0][1] is now: %d\n", matrix[0][1]); // Output: 20
+
+    // Iterate through the matrix
+    printf("Full matrix:\n");
+    for (int i = 0; i < 2; i++) { // Loop through rows
+        for (int j = 0; j < 3; j++) { // Loop through columns
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n"); // Newline after each row
+    }
+
+    return 0;
+}
+```
+
+### 4.4. Passing Multidimensional Arrays to Functions
+
+When passing a multidimensional array to a function, you must specify the size of all dimensions *except the first* in the function parameter list.
+
+#### Generic Syntax
+```c
+// Function using array notation
+void function_name(int rows, int cols, int arr[rows][cols]) {
+    // Function body
+}
+
+// Function using pointer notation
+void function_name(int rows, int cols, int (*arr)[cols]) {
+    // Function body
+}
+```
+
+#### Syntax Breakdown
+- `rows`, `cols`: Parameters for the dimensions of the array.
+- `arr[rows][cols]`: Array parameter where the first dimension is variable.
+- `(*arr)[cols]`: Pointer parameter. `arr` is a pointer to an array of `cols` integers.
+
+```c
+#include <stdio.h>
+
+// Function to print a 2D array using array notation
+void print2DArray(int rows, int cols, int arr[rows][cols]) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+// Alternative way using pointer notation
+void print2DArrayPointer(int rows, int cols, int (*arr)[cols]) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int matrix[3][4] = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9, 10, 11, 12}
+    };
+    
+    printf("Using array notation:\n");
+    print2DArray(3, 4, matrix);
+    
+    printf("\nUsing pointer notation:\n");
+    print2DArrayPointer(3, 4, matrix);
+    
+    return 0;
+}
+```
+
 ## 5. Pointers (The Core of Advanced C)
 
 A pointer is a variable that stores the **memory address** of another variable.
@@ -448,6 +989,27 @@ A pointer is a variable that stores the **memory address** of another variable.
 
 - `*` (asterisk): Used to declare a pointer variable. Also used to **dereference** a pointer (access the value at the address it holds).
 - `&` (ampersand): The "address-of" operator. It gets the memory address of a variable.
+
+#### Generic Syntax
+```c
+// Declaration
+data_type *pointer_name;
+
+// Initialization
+pointer_name = &variable_name;
+
+// Accessing the value through the pointer
+*pointer_name
+
+// Accessing the address stored in the pointer
+pointer_name
+```
+
+#### Syntax Breakdown
+- `data_type`: Type of data the pointer points to
+- `*pointer_name`: Pointer variable declaration
+- `&variable_name`: Address of the variable
+- `*pointer_name`: Value at the address stored in the pointer (dereferencing)
 
 ```c
 #include <stdio.h>
@@ -476,7 +1038,32 @@ int main() {
 
 ### 5.2. Pointers and Arrays
 
-The name of an array acts like a pointer to its first element.
+The name of an array acts like a pointer to its first element. Pointer arithmetic can be used to traverse an array.
+
+#### Generic Syntax
+```c
+// Array declaration
+data_type array_name[size];
+
+// Pointer declaration and initialization
+data_type *pointer_name = array_name;
+
+// Accessing array elements using pointer arithmetic
+*(pointer_name + index)
+
+// Equivalent to array notation
+array_name[index]
+
+// Pointer arithmetic operations
+pointer_name++; // Moves to the next element (by sizeof(data_type) bytes)
+pointer_name--; // Moves to the previous element
+```
+
+#### Syntax Breakdown
+- `array_name`: Name of the array (acts as pointer to first element)
+- `pointer_name`: Pointer variable
+- `pointer_name + index`: Address of the element at the given index
+- `*(pointer_name + index)`: Value at the address (equivalent to array_name[index])
 
 ```c
 #include <stdio.h>
@@ -491,9 +1078,13 @@ int main() {
     // Accessing elements with pointer arithmetic
     printf("*(ptr + 1) = %d\n", *(ptr + 1)); // Same as arr[1]
 
-    // Both point to the same memory location
-    printf("Address of arr[1]: %p\n", (void*)&arr[1]);
-    printf("Address of (ptr + 1): %p\n", (void*)(ptr + 1));
+    // --- More Pointer Arithmetic ---
+    ptr++; // Move pointer to the second element
+    printf("After ptr++, value is: %d\n", *ptr); // Prints 10
+
+    // Pointer subtraction: distance between two pointers
+    int *ptr2 = &arr[2];
+    printf("Difference between ptr2 and ptr: %ld\n", ptr2 - ptr); // Prints 1 (element)
 
     return 0;
 }
@@ -502,6 +1093,22 @@ int main() {
 ### 5.3. Pointers and Functions (Simulating Pass-by-Reference)
 
 By passing a pointer to a function, you can modify the original variable from the caller's scope.
+
+#### Generic Syntax
+```c
+void function_name(data_type *parameter_name) {
+    // Function body
+    *parameter_name = new_value; // Modify the original variable
+}
+
+// Calling the function
+function_name(&variable_name);
+```
+
+#### Syntax Breakdown
+- `data_type *parameter_name`: Pointer parameter
+- `*parameter_name`: Dereferenced pointer to access the original variable
+- `&variable_name`: Address of the variable being passed
 
 ```c
 #include <stdio.h>
@@ -530,6 +1137,32 @@ int main() {
 A `struct` (structure) is a user-defined data type that groups together variables of different data types under a single name.
 
 ### 6.1. Declaring and Using Structs
+
+#### Generic Syntax
+```c
+// Struct definition
+struct struct_name {
+    data_type member1;
+    data_type member2;
+    // ...
+};
+
+// Variable declaration
+struct struct_name variable_name;
+
+// Accessing members
+variable_name.member_name
+
+// Assigning values
+variable_name.member_name = value;
+```
+
+#### Syntax Breakdown
+- `struct`: Keyword to define a structure
+- `struct_name`: Identifier for the structure type
+- `member1`, `member2`: Member variables of the structure
+- `variable_name`: Variable of the structure type
+- `.`: Dot operator to access members of a structure variable
 
 ```c
 #include <stdio.h>
@@ -563,6 +1196,30 @@ int main() {
 ### 6.2. Pointers to Structs and the `->` Operator
 
 When you have a pointer to a struct, you can access its members in two ways. The arrow `->` operator is a convenient shortcut.
+
+#### Generic Syntax
+```c
+// Struct definition
+struct struct_name {
+    data_type member1;
+    data_type member2;
+    // ...
+};
+
+// Pointer declaration and initialization
+struct struct_name *pointer_name = &variable_name;
+
+// Accessing members using pointer and dot operator
+(*pointer_name).member_name
+
+// Accessing members using arrow operator (preferred)
+pointer_name->member_name
+```
+
+#### Syntax Breakdown
+- `*pointer_name`: Pointer to a structure
+- `(*pointer_name).member_name`: Dereferencing the pointer then using dot operator
+- `pointer_name->member_name`: Arrow operator to access members through a pointer
 
 ```c
 #include <stdio.h>
@@ -608,17 +1265,26 @@ Static variables (like global variables and arrays) have their memory allocated 
 > [!warning] Memory Leaks
 > Any memory you allocate dynamically **must be freed** using `free()`. Forgetting to do so causes a **memory leak**, where the program consumes more and more memory without releasing it.
 
-In C, the stack and the heap are two fundamental regions of memory that manage your program's data, each with a different purpose and behavior. 
-
-The **stack** is a highly organized and efficient region that handles local variables and the flow of function calls. Think of it like a stack of plates: when a function is called, a new "plate" containing its local variables is pushed onto the stack. When the function finishes, its plate is popped off, and all its variables are automatically destroyed. This automatic management makes the stack very fast, but it also means that memory on the stack is temporary and limited in size.
-
-In contrast, the **heap** is a large, more flexible pool of memory used for dynamic allocation. While static and stack memory is handled for you, the heap allows you to explicitly request memory at runtime using functions like `malloc`. 
-
-This is essential when you don't know how much memory you need until the program is running, or when you need data to outlive the function that created it. The trade-off for this flexibility is manual responsibility: you must explicitly return the memory to the heap using `free()` when you are finished with it. Forgetting to do so results in a **memory leak**, where the memory remains allocated but unusable for the rest of the program's execution.
 ### 7.1. `malloc` and `free`
 
 - `malloc(size)`: Allocates `size` bytes of memory. Returns a `void*` pointer to the start of the block. Returns `NULL` if allocation fails.
 - `free(ptr)`: Deallocates the memory block pointed to by `ptr`, making it available for future use.
+
+#### Generic Syntax
+```c
+// Memory allocation
+pointer_type pointer_name = (pointer_type)malloc(size * sizeof(data_type));
+
+// Memory deallocation
+free(pointer_name);
+```
+
+#### Syntax Breakdown
+- `pointer_type`: Type of pointer to store the allocated memory
+- `malloc()`: Function to allocate memory
+- `size`: Number of elements to allocate
+- `sizeof(data_type)`: Size of each element in bytes
+- `free()`: Function to deallocate memory
 
 ```c
 #include <stdio.h>
@@ -660,6 +1326,32 @@ int main() {
 A linked list is a chain of **nodes**, where each node contains data and a pointer to the next node in the sequence. This is a perfect example of combining [[#6. Structs]], [[#5. Pointers (The Core of Advanced C)]], and [[#7. Dynamic Memory Allocation]].
 
 ### 8.1. Creating and Manipulating a Simple Linked List
+
+#### Generic Syntax
+```c
+// Node structure
+struct node_name {
+    data_type data;
+    struct node_name *next;
+};
+
+// Creating a new node
+struct node_name *new_node = (struct node_name*)malloc(sizeof(struct node_name));
+new_node->data = value;
+new_node->next = NULL;
+
+// Linking nodes
+node1->next = node2;
+node2->next = node3;
+// ...
+```
+
+#### Syntax Breakdown
+- `struct node_name`: Structure defining a node
+- `data`: Data stored in the node
+- `next`: Pointer to the next node in the list
+- `malloc()`: Function to allocate memory for a new node
+- `->`: Arrow operator to access members through a pointer
 
 ```c
 #include <stdio.h>
@@ -725,6 +1417,7 @@ int main() {
     return 0;
 }
 ```
+
 ## 9. File I/O (Input/Output)
 
 File I/O allows your program to read data from and write data to files on the disk, making data persistent between program runs.
@@ -742,6 +1435,30 @@ The primary functions for file handling are in `<stdio.h>`.
 
 > [!warning] Always Check `fopen`
 > `fopen` returns `NULL` if it fails to open the file (e.g., file doesn't exist in read mode, or permissions are denied). **Always** check for `NULL` before trying to use the file pointer.
+
+#### Generic Syntax
+```c
+// Opening a file
+FILE *file_pointer = fopen("filename", "mode");
+
+// Writing to a file
+fprintf(file_pointer, "format string", arguments);
+
+// Reading from a file
+fscanf(file_pointer, "format string", &variables);
+
+// Closing a file
+fclose(file_pointer);
+```
+
+#### Syntax Breakdown
+- `FILE *`: Pointer to a file structure
+- `fopen()`: Function to open a file
+- `"filename"`: Name of the file to open
+- `"mode"`: Mode in which to open the file (read, write, etc.)
+- `fprintf()`: Function to write formatted output to a file
+- `fscanf()`: Function to read formatted input from a file
+- `fclose()`: Function to close a file
 
 ```c
 #include <stdio.h>
@@ -792,6 +1509,27 @@ int main() {
 
 A pointer to a pointer is a variable that stores the address of another pointer. This is useful when you need a function to modify a pointer argument itself (e.g., changing which memory address a pointer in the calling function points to).
 
+#### Generic Syntax
+```c
+// Declaration
+data_type **pointer_to_pointer;
+
+// Initialization
+pointer_to_pointer = &pointer_name;
+
+// Accessing the value through double pointer
+**pointer_to_pointer
+
+// Accessing the pointer stored in the double pointer
+*pointer_to_pointer
+```
+
+#### Syntax Breakdown
+- `data_type **`: Pointer to a pointer declaration
+- `&pointer_name`: Address of the pointer
+- `*pointer_to_pointer`: Pointer stored in the double pointer
+- `**pointer_to_pointer`: Value at the address stored in the pointer
+
 ```c
 #include <stdio.h>
 #include <stdlib.h>
@@ -830,6 +1568,23 @@ int main() {
 
 Using `const` with pointers is important for safety and clarity. The placement of `const` matters.
 
+#### Generic Syntax
+```c
+// Pointer to const data
+const data_type *pointer_name;
+
+// Const pointer
+data_type * const pointer_name;
+
+// Const pointer to const data
+const data_type * const pointer_name;
+```
+
+#### Syntax Breakdown
+- `const data_type *`: Pointer to constant data (can't change data through pointer)
+- `data_type * const`: Constant pointer (can't change pointer itself)
+- `const data_type * const`: Constant pointer to constant data (can't change either)
+
 | Declaration | Meaning |
 |---|---|
 | `const int *ptr` | Pointer to a `const` integer. You can change the pointer (`ptr`), but you **cannot** change the value it points to (`*ptr`). |
@@ -858,11 +1613,70 @@ int main() {
 }
 ```
 
+### 10.3. Interpreting Complex Declarations
+
+C declarations can be complex, but there's a simple rule: start from the identifier and read outwards, applying `[]` and `()` before `*`.
+
+#### Generic Syntax
+```c
+// Read from the identifier outwards.
+// [] and () have higher precedence than *.
+```
+
+#### Syntax Breakdown
+- `identifier`: The name of the variable being declared.
+- `*`: "pointer to"
+- `[]`: "array of"
+- `()`: "function returning"
+
+| Declaration | How to Read It | Meaning |
+|---|---|---|
+| `int *p[3];` | `p` is an array `[3]` of pointers `*` to `int` | An array of 3 `int*` pointers. |
+| `int (*p)[3];` | `p` is a pointer `*` to an array `[3]` of `int` | A pointer to an array of 3 integers. |
+| `int *f();` | `f` is a function `()` returning a pointer `*` to `int` | A function that returns an `int*`. |
+| `int (*pf)();` | `pf` is a pointer `*` to a function `()` returning `int` | A function pointer that points to a function returning an `int`. |
+
+```c
+#include <stdio.h>
+
+// Example of using a function pointer
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    // Function pointer declaration (matches the table above)
+    int (*pf)(int, int) = add;
+    
+    // Using the function pointer
+    int result = pf(5, 3);
+    printf("Result: %d\n", result); // Output: 8
+    
+    return 0;
+}
+```
+
 ## 11. Recursion
 
 Recursion is a programming technique where a function calls itself to solve a problem. A recursive function must have:
 1.  A **base case**: A condition that stops the recursion.
 2.  A **recursive step**: The part of the function that calls itself, moving towards the base case.
+
+#### Generic Syntax
+```c
+return_type recursive_function(parameters) {
+    if (base_case_condition) {
+        return base_case_value;
+    } else {
+        return recursive_function(modified_parameters);
+    }
+}
+```
+
+#### Syntax Breakdown
+- `base_case_condition`: Condition that stops the recursion
+- `base_case_value`: Value returned when base case is reached
+- `recursive_function()`: Function calling itself with modified parameters
 
 ```c
 #include <stdio.h>
@@ -870,20 +1684,33 @@ Recursion is a programming technique where a function calls itself to solve a pr
 // Recursive function to calculate factorial
 // factorial(n) = n * factorial(n-1)
 // Base case: factorial(0) = 1
-int factorial(int n) {
-    // Base case: if n is 0 or 1, the factorial is 1.
+int factorial_recursive(int n) {
     if (n <= 1) {
         return 1;
     }
-    // Recursive step: n * factorial of (n-1)
-    else {
-        return n * factorial(n - 1);
+    return n * factorial_recursive(n - 1);
+}
+
+// Iterative version for comparison
+int factorial_iterative(int n) {
+    int result = 1;
+    for (int i = 2; i <= n; i++) {
+        result *= i;
     }
+    return result;
 }
 
 int main() {
     int num = 5;
-    printf("Factorial of %d is %d\n", num, factorial(num)); // 120
+    printf("Factorial (recursive): %d\n", factorial_recursive(num));
+    printf("Factorial (iterative): %d\n", factorial_iterative(num));
+    
+    // Recursion vs. Iteration:
+    // - Recursive: Often more elegant, closer to the mathematical definition.
+    //   Can be less efficient due to function call overhead and risk of stack overflow.
+    // - Iterative: Generally more efficient (no overhead), no stack overflow risk.
+    //   Can be more complex to write for problems naturally defined recursively.
+    
     return 0;
 }
 ```
@@ -898,6 +1725,17 @@ The preprocessor runs before the compiler. It processes directives that start wi
 ### 12.1. Macro Functions
 
 You can define function-like macros using `#define`. Be careful, as macros are simple text replacements and can have unexpected side effects.
+
+#### Generic Syntax
+```c
+#define MACRO_NAME(parameters) replacement_text
+```
+
+#### Syntax Breakdown
+- `#define`: Preprocessor directive to define a macro
+- `MACRO_NAME`: Name of the macro
+- `parameters`: Parameters for the macro (optional)
+- `replacement_text`: Text to replace the macro with
 
 ```c
 #include <stdio.h>
@@ -936,6 +1774,33 @@ int main() {
 
 These directives allow you to include or exclude parts of code based on certain conditions. This is very useful for creating different builds (e.g., debug vs. release) or preventing header files from being included multiple times.
 
+#### Generic Syntax
+```c
+#ifdef MACRO_NAME
+    // Code to include if MACRO_NAME is defined
+#endif
+
+#ifndef MACRO_NAME
+    // Code to include if MACRO_NAME is not defined
+#endif
+
+#if expression
+    // Code to include if expression is true
+#elif expression
+    // Code to include if previous expression was false and this one is true
+#else
+    // Code to include if all expressions are false
+#endif
+```
+
+#### Syntax Breakdown
+- `#ifdef`: Checks if a macro is defined
+- `#ifndef`: Checks if a macro is not defined
+- `#if`: Evaluates a constant expression
+- `#elif`: Else if condition
+- `#else`: Else condition
+- `#endif`: Ends the conditional block
+
 ```c
 #include <stdio.h>
 
@@ -961,6 +1826,17 @@ int main() {
 ## 13. Bitwise Operators
 
 Bitwise operators manipulate individual bits of an integer. They are often used for low-level programming, setting flags, or optimizations.
+
+#### Generic Syntax
+```c
+result = operand1 bitwise_operator operand2;
+result = operand bitwise_operator operand;
+```
+
+#### Syntax Breakdown
+- `result`: Variable to store the result
+- `operand1`, `operand2`: Values or variables being operated on
+- `bitwise_operator`: One of &, |, ^, ~, <<, >>
 
 | Operator | Name | Description | Example (`x = 6` (110), `y = 3` (011)) |
 |---|---|---|---|
@@ -1000,6 +1876,24 @@ int main() {
 
 The `typedef` keyword allows you to create an alias (a new name) for an existing data type. This is extremely useful for simplifying complex type declarations, especially with structs and pointers.
 
+#### Generic Syntax
+```c
+typedef existing_type new_type_name;
+
+// For structs
+typedef struct {
+    data_type member1;
+    data_type member2;
+    // ...
+} struct_name;
+```
+
+#### Syntax Breakdown
+- `typedef`: Keyword to define a new type name
+- `existing_type`: Existing data type to create an alias for
+- `new_type_name`: New name for the data type
+- `struct_name`: Name for the struct type
+
 ```c
 #include <stdio.h>
 
@@ -1038,6 +1932,28 @@ int main() {
 ### 14.2. `enum`
 
 An `enum` (enumeration) is a special type that assigns symbolic names to integer constants, making your code more readable and maintainable.
+
+#### Generic Syntax
+```c
+typedef enum {
+    ENUM_CONSTANT1,
+    ENUM_CONSTANT2,
+    // ...
+} enum_name;
+
+// Or with specific values
+typedef enum {
+    ENUM_CONSTANT1 = value1,
+    ENUM_CONSTANT2 = value2,
+    // ...
+} enum_name;
+```
+
+#### Syntax Breakdown
+- `enum`: Keyword to define an enumeration
+- `ENUM_CONSTANT1`, `ENUM_CONSTANT2`: Symbolic names for integer constants
+- `value1`, `value2`: Optional specific integer values
+- `enum_name`: Name for the enum type
 
 ```c
 #include <stdio.h>
@@ -1084,6 +2000,28 @@ A function pointer is a variable that stores the address of a function. This all
 
 > [!tip] `qsort` and Function Pointers
 > The most common introductory example for function pointers is the standard library function `qsort`, which sorts an array. It takes a pointer to a "comparison" function that you provide, telling it *how* to sort the elements.
+
+#### Generic Syntax
+```c
+// Declaration
+return_type (*pointer_name)(parameter_types);
+
+// Initialization
+pointer_name = function_name;
+
+// Calling the function through the pointer
+pointer_name(arguments);
+
+// Passing a function pointer as an argument
+void function_with_callback(return_type (*callback)(parameter_types));
+```
+
+#### Syntax Breakdown
+- `return_type`: Return type of the function
+- `(*pointer_name)`: Pointer to a function
+- `parameter_types`: Types of the function's parameters
+- `function_name`: Name of the function to point to
+- `arguments`: Arguments to pass when calling the function through the pointer
 
 ```c
 #include <stdio.h>
@@ -1144,46 +2082,128 @@ int main() {
 
 ## 16. The C Standard Library (A Deeper Look)
 
-### 16.1. `<stdlib.h>` - General Utilities
+### 16.1. `<stdio.h>` - Standard Input/Output
 
-Besides `malloc` and `free`, this library contains many other useful functions.
+Besides `printf` and `scanf`, this header provides functions for formatted output to strings.
+
+- `sprintf(buffer, format, ...)`: Like `fprintf`, but writes to a character string (buffer) instead of a file. **Be extremely careful of buffer overflows.**
+- `snprintf(buffer, size, format, ...)`: A safer version of `sprintf` that writes at most `size-1` characters.
+
+#### Generic Syntax
+```c
+// Formatted output to a string
+int chars_written = sprintf(buffer, "format string", arguments);
+int chars_written = snprintf(buffer, buffer_size, "format string", arguments);
+```
+
+#### Syntax Breakdown
+- `sprintf()`: Function to write formatted output to a string.
+- `snprintf()`: Safer version that limits the number of characters written.
+- `buffer`: Character array to write to.
+- `buffer_size`: The size of the buffer for `snprintf`.
+- `chars_written`: The number of characters written (not including the null terminator).
+
+```c
+#include <stdio.h>
+
+int main() {
+    char buffer[50];
+    int num = 42;
+    float pi = 3.14159f;
+
+    // Use sprintf to create a formatted string
+    sprintf(buffer, "The number is %d and Pi is %.2f", num, pi);
+    printf("Buffer contains: %s\n", buffer);
+
+    // Using width and precision specifiers with printf
+    printf("Right-aligned: |%10d|\n", 42);      // |        42|
+    printf("Left-aligned: |%-10d|\n", 42);       // |42        |
+    printf("Zero-padded:  |%010d|\n", 42);       // |0000000042|
+    printf("Precision:    |%.3f|\n", pi);        // |3.142|
+
+    return 0;
+}
+```
+
+### 16.2. `<stdlib.h>` - General Utilities
+
+Besides `malloc` and `free`, this library contains many other useful functions, including memory manipulation functions.
 
 - `atoi(const char *str)`: Converts a string to an integer.
 - `atof(const char *str)`: Converts a string to a double.
 - `rand()`: Returns a pseudo-random integer between 0 and `RAND_MAX`.
 - `srand(unsigned int seed)`: Seeds the random number generator. Use `time(NULL)` to get a different sequence each time.
+- `memcpy(dest, src, n)`: Copies `n` bytes from `src` to `dest`. Does not check for overlap.
+- `memcmp(ptr1, ptr2, n)`: Compares the first `n` bytes of `ptr1` and `ptr2`. Returns 0 if equal, negative if `ptr1` < `ptr2`, positive if `ptr1` > `ptr2`.
+
+#### Generic Syntax
+```c
+// String to integer conversion
+int integer_value = atoi(string);
+
+// String to double conversion
+double double_value = atof(string);
+
+// Memory copy
+memcpy(destination, source, num_bytes);
+
+// Memory compare
+int result = memcmp(pointer1, pointer2, num_bytes);
+```
+
+#### Syntax Breakdown
+- `atoi()`: Function to convert a string to an integer
+- `atof()`: Function to convert a string to a double
+- `memcpy()`: Function to copy a block of memory
+- `memcmp()`: Function to compare two blocks of memory
 
 ```c
 #include <stdio.h>
 #include <stdlib.h>
-#include <time.h> // For time()
+#include <string.h> // For memcpy
 
 int main() {
-    char num_str[] = "123";
-    int num = atoi(num_str);
-    printf("String \"%s\" as integer: %d\n", num_str, num);
-
-    // Seed the random number generator once at the start of the program
-    srand(time(NULL));
-
-    printf("Five random numbers (1-100):\n");
-    for (int i = 0; i < 5; i++) {
-        // Use the modulo operator to get a number in a specific range
-        int random_num = rand() % 100 + 1;
-        printf("%d\n", random_num);
+    // --- Memory Functions ---
+    int src[] = {1, 2, 3, 4, 5};
+    int dest[5];
+    
+    // Copy the entire 'src' array to 'dest'
+    memcpy(dest, src, sizeof(src));
+    
+    printf("Copied array: ");
+    for(int i = 0; i < 5; i++) {
+        printf("%d ", dest[i]);
+    }
+    printf("\n");
+    
+    // Compare the two memory blocks
+    if (memcmp(src, dest, sizeof(src)) == 0) {
+        printf("Memory blocks are identical.\n");
     }
 
     return 0;
 }
 ```
 
-### 16.2. `<math.h>` - Mathematics
+### 16.3. `<math.h>` - Mathematics
 
 Contains common mathematical functions. Remember to link the math library when compiling (e.g., `gcc my_program.c -o my_program -lm`).
 
 - `sqrt(double x)`: Square root.
 - `pow(double base, double exp)`: Base raised to the power of exp.
 - `sin(double x)`, `cos(double x)`, `tan(double x)`: Trigonometric functions (angle in radians).
+- `ceil(double x)`: Rounds `x` up to the nearest integer.
+- `floor(double x)`: Rounds `x` down to the nearest integer.
+
+#### Generic Syntax
+```c
+double result = function_name(arguments);
+```
+
+#### Syntax Breakdown
+- `function_name`: Name of the mathematical function
+- `arguments`: Arguments to pass to the function
+- `result`: Variable to store the result
 
 ```c
 #include <stdio.h>
@@ -1191,9 +2211,57 @@ Contains common mathematical functions. Remember to link the math library when c
 
 int main() {
     double a = 9.0, b = 2.0;
+    double c = 4.2, d = 4.8;
 
     printf("Square root of %.1f is %.1f\n", a, sqrt(a));
     printf("%.1f to the power of %.1f is %.1f\n", a, b, pow(a, b));
+    printf("ceil(%.1f) = %.1f, floor(%.1f) = %.1f\n", c, ceil(c), d, floor(d));
+
+    return 0;
+}
+```
+
+### 16.4. `<ctype.h>` - Character Handling
+
+This header provides functions for testing and mapping characters. These functions are useful when parsing strings or input.
+
+- `isalpha(c)`: Returns non-zero if `c` is an alphabetic character.
+- `isdigit(c)`: Returns non-zero if `c` is a digit (0-9).
+- `isalnum(c)`: Returns non-zero if `c` is alphanumeric (a-z, A-Z, 0-9).
+- `tolower(c)`: Converts `c` to lowercase.
+- `toupper(c)`: Converts `c` to uppercase.
+
+#### Generic Syntax
+```c
+int result = is_function(character);
+char new_char = to_function(character);
+```
+
+#### Syntax Breakdown
+- `is_function()`: Function to test a character's type (e.g., `isalpha`)
+- `to_function()`: Function to convert a character's case (e.g., `toupper`)
+- `character`: The character to test or convert
+- `result`: Non-zero if true, 0 if false
+- `new_char`: The converted character
+
+```c
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    char c = 'A';
+    char d = '5';
+
+    if (isalpha(c)) {
+        printf("'%c' is an alphabetic character.\n", c);
+    }
+
+    if (isdigit(d)) {
+        printf("'%c' is a digit.\n", d);
+    }
+
+    printf("'%c' in lowercase is '%c'.\n", c, tolower(c));
+    printf("'%c' in uppercase is '%c'.\n", d, toupper(d)); // No change for a digit
 
     return 0;
 }
@@ -1205,6 +2273,23 @@ You can pass information to your C program from the command line. The `main` fun
 
 - `int argc`: **A**rgument **c**ount. The number of command-line arguments.
 - `char *argv[]`: **A**rgument **v**ector. An array of strings (character pointers) representing the arguments. `argv[0]` is always the program's name.
+
+#### Generic Syntax
+```c
+int main(int argc, char *argv[]) {
+    // Code using command-line arguments
+    for (int i = 0; i < argc; i++) {
+        printf("Argument %d: %s\n", i, argv[i]);
+    }
+    return 0;
+}
+```
+
+#### Syntax Breakdown
+- `argc`: Number of command-line arguments
+- `argv`: Array of strings containing the arguments
+- `argv[0]`: Name of the program
+- `argv[1]` to `argv[argc-1]`: Command-line arguments
 
 ```c
 // Compile with: gcc my_program.c -o my_program
@@ -1235,6 +2320,25 @@ int main(int argc, char *argv[]) {
 ## 18. Advanced Error Handling
 
 When a standard library function fails, it often sets a global integer variable named `errno` (defined in `<errno.h>`) to a specific error code. The `perror()` function can then print a human-readable message for this error.
+
+#### Generic Syntax
+```c
+#include <errno.h>
+#include <string.h>
+
+// After a function call that might fail
+if (error_condition) {
+    perror("Error message");
+    // Or using strerror
+    fprintf(stderr, "Error: %s\n", strerror(errno));
+}
+```
+
+#### Syntax Breakdown
+- `errno`: Global variable set to error codes
+- `perror()`: Function to print a descriptive error message
+- `strerror()`: Function to get a string describing an error code
+- `fprintf(stderr, ...)`: Function to print to the standard error stream
 
 ```c
 #include <stdio.h>
@@ -1269,6 +2373,31 @@ int main() {
 ## 19. Unions (`union`)
 
 A `union` is a special data type that allows storing different data types in the **same memory location**. A union can only hold one of its members at a time. The size of a union is large enough to hold its largest member.
+
+#### Generic Syntax
+```c
+union union_name {
+    data_type member1;
+    data_type member2;
+    // ...
+};
+
+// Variable declaration
+union union_name variable_name;
+
+// Accessing members
+variable_name.member_name
+
+// Assigning values
+variable_name.member_name = value;
+```
+
+#### Syntax Breakdown
+- `union`: Keyword to define a union
+- `union_name`: Identifier for the union type
+- `member1`, `member2`: Member variables of the union
+- `variable_name`: Variable of the union type
+- `.`: Dot operator to access members of a union variable
 
 ```c
 #include <stdio.h>
@@ -1314,6 +2443,28 @@ As programs grow, placing all code in a single file becomes unmanageable. The st
 > To prevent a header file from being included multiple times in the same compilation unit (which causes redefinition errors), you must wrap its contents in **header guards**.
 
 ### Example: A Simple Math Utilities Module
+
+#### Generic Syntax
+```c
+// Header file (.h)
+#ifndef HEADER_GUARD_NAME
+#define HEADER_GUARD_NAME
+
+// Function prototypes, struct definitions, etc.
+
+#endif // HEADER_GUARD_NAME
+
+// Source file (.c)
+#include "header_file.h"
+
+// Function definitions
+```
+
+#### Syntax Breakdown
+- `#ifndef HEADER_GUARD_NAME`: Checks if the header guard is not defined
+- `#define HEADER_GUARD_NAME`: Defines the header guard
+- `#endif`: Ends the header guard block
+- `#include "header_file.h"`: Includes the header file in the source file
 
 **File: `math_utils.h`** (The Interface)
 ```c
@@ -1365,22 +2516,51 @@ gcc main.c math_utils.c -o my_program
 The `<string.h>` library provides more functions for working with strings.
 
 -   `strcat(dest, src)`: Appends (concatenates) the `src` string to the end of the `dest` string.
+-   `strncat(dest, src, n)`: Appends at most `n` characters from `src` to `dest`.
 -   `strcmp(s1, s2)`: Compares two strings lexicographically (alphabetically). Returns `< 0` if `s1` comes before `s2`, `0` if they are equal, and `> 0` if `s1` comes after `s2`.
 -   `strtok(str, delim)`: Breaks a string into a series of tokens based on a set of delimiter characters.
 
 > [!warning] Buffer Overflows
 > Functions like `strcat` and `strcpy` do not check the size of the destination buffer. Writing past the end of a buffer causes a **buffer overflow**, a common security vulnerability. Use safer versions like `strncat` and `strncpy` where possible.
 
+#### Generic Syntax
+```c
+// String concatenation
+strcat(destination, source);
+strncat(destination, source, num_chars);
+
+// String comparison
+int result = strcmp(string1, string2);
+
+// String tokenization
+char *token = strtok(string, delimiters);
+// Subsequent calls
+token = strtok(NULL, delimiters);
+```
+
+#### Syntax Breakdown
+- `strcat()`: Function to concatenate strings
+- `strncat()`: Safer function to concatenate strings with a limit
+- `destination`: Destination string (will be modified)
+- `source`: Source string to append
+- `num_chars`: Maximum number of characters to append
+- `strcmp()`: Function to compare strings
+- `string1`, `string2`: Strings to compare
+- `strtok()`: Function to tokenize a string
+- `string`: String to tokenize
+- `delimiters`: Delimiter characters
+- `token`: Pointer to the next token
+
 ```c
 #include <stdio.h>
 #include <string.h>
 
 int main() {
-    // --- strcat ---
+    // --- strncat ---
     char first[50] = "Hello, ";
     char second[] = "World!";
-    strcat(first, second);
-    printf("Concatenated: %s\n", first); // "Hello, World!"
+    strncat(first, second, 3); // Append at most 3 chars from second
+    printf("strncat result: %s\n", first); // "Hello, Wor"
 
     // --- strcmp ---
     char s1[] = "apple";
@@ -1415,6 +2595,22 @@ Besides `malloc`, the standard library provides `calloc` and `realloc`.
 
 -   `calloc(num, size)`: **C**ontiguous **alloc**ation. Allocates memory for an array of `num` elements, each of `size` bytes, and **initializes all bytes to zero**.
 -   `realloc(ptr, new_size)`: **Re**-**alloc**ation. Changes the size of the memory block pointed to by `ptr` to `new_size`. It may move the block to a new location.
+
+#### Generic Syntax
+```c
+// Contiguous allocation
+pointer_type pointer_name = (pointer_type)calloc(num_elements, sizeof(data_type));
+
+// Reallocation
+pointer_type new_pointer = (pointer_type)realloc(old_pointer, new_size);
+```
+
+#### Syntax Breakdown
+- `calloc()`: Function to allocate and zero-initialize memory
+- `num_elements`: Number of elements to allocate
+- `realloc()`: Function to reallocate memory
+- `old_pointer`: Pointer to previously allocated memory
+- `new_size`: New size for the memory block
 
 ```c
 #include <stdio.h>
@@ -1467,6 +2663,19 @@ The `static` keyword has two distinct meanings depending on its context.
 ### 23.1. Static Local Variables
 Inside a function, a `static` local variable retains its value between function calls. It is initialized only once.
 
+#### Generic Syntax
+```c
+void function_name() {
+    static data_type variable_name = initial_value;
+    // Function body
+}
+```
+
+#### Syntax Breakdown
+- `static`: Keyword to declare a static local variable
+- `variable_name`: Name of the static variable
+- `initial_value`: Initial value of the static variable
+
 ```c
 #include <stdio.h>
 
@@ -1488,6 +2697,22 @@ int main() {
 
 ### 23.2. Static Global Variables and Functions
 When used on a global variable or a function outside of any function, `static` limits its visibility to the **current file only**. This is called **internal linkage**. It's useful for creating helper functions that shouldn't be accessible from other parts of a large program.
+
+#### Generic Syntax
+```c
+// Static global variable
+static data_type variable_name;
+
+// Static function
+static return_type function_name(parameters) {
+    // Function body
+}
+```
+
+#### Syntax Breakdown
+- `static`: Keyword to limit visibility to the current file
+- `variable_name`: Name of the static global variable
+- `function_name`: Name of the static function
 
 ```c
 // In file: helper.c
@@ -1517,6 +2742,15 @@ int main() {
 
 The `volatile` keyword is a type qualifier that tells the compiler that a variable's value may be changed in ways outside the control or detection of the program (e.g., by a hardware device in an embedded system). This prevents the compiler from making optimizations that might assume the variable's value doesn't change unexpectedly.
 
+#### Generic Syntax
+```c
+volatile data_type variable_name;
+```
+
+#### Syntax Breakdown
+- `volatile`: Keyword to declare a volatile variable
+- `variable_name`: Name of the volatile variable
+
 ```c
 // Conceptual example: A hardware timer register
 volatile int *timer_register = (int*)0x1000;
@@ -1539,6 +2773,25 @@ Understanding where a variable is visible (**scope**) and how long it exists (**
 -   **Block Scope**: Variables declared inside a block `{ ... }` (e.g., inside a function, loop, or `if` statement) are only accessible within that block.
 -   **File Scope**: Variables declared outside of any function (global variables) are accessible from any point in the file *after* their declaration. If declared as `static`, they have file scope but are not accessible from other files.
 -   **Function Prototype Scope**: The names of parameters in a function prototype are only visible within the prototype itself.
+
+#### Generic Syntax
+```c
+// Block scope
+{
+    data_type variable_name; // Only visible within this block
+}
+
+// File scope
+data_type global_variable; // Visible throughout the file
+
+// Static file scope
+static data_type static_variable; // Visible only within this file
+```
+
+#### Syntax Breakdown
+- `{}`: Block defining the scope of variables
+- `global_variable`: Variable with file scope
+- `static_variable`: Variable with static file scope (internal linkage)
 
 ```c
 #include <stdio.h>
@@ -1575,6 +2828,25 @@ int main() {
 -   **Dynamic Storage Duration**: Memory allocated with `malloc`, `calloc`, or `realloc`. It exists until it is explicitly deallocated with `free`.
 -   **External Linkage** (`extern`): This keyword is used to *declare* a global variable that is *defined* in another file. It tells the compiler, "This variable exists, but the memory for it is allocated elsewhere."
 
+#### Generic Syntax
+```c
+// Automatic storage duration (default for local variables)
+{
+    auto data_type variable_name; // 'auto' is optional
+}
+
+// Static storage duration
+static data_type variable_name;
+
+// External linkage
+extern data_type variable_name;
+```
+
+#### Syntax Breakdown
+- `auto`: Keyword for automatic storage duration (optional)
+- `static`: Keyword for static storage duration
+- `extern`: Keyword for external linkage
+
 **Example of `extern`**
 
 **File: `config.c`**
@@ -1603,6 +2875,81 @@ int main() {
 gcc main.c config.c -o my_program
 ```
 
+### 25.3. Other Storage Class Specifiers
+
+Besides `static`, C has `auto` and `register`.
+
+-   **`auto`**: The default storage class for all local variables. It explicitly declares a variable with automatic storage duration. It is rarely used as it's the implicit default.
+-   **`register`**: A hint to the compiler to store a variable in a fast CPU register instead of RAM. This is an optimization hint; the compiler may ignore it. You cannot get the address of a `register` variable (i.e., `&` is not allowed).
+
+#### Generic Syntax
+```c
+// auto (explicitly)
+auto int x = 10;
+
+// register
+register int counter = 0;
+```
+
+#### Syntax Breakdown
+- `auto`: Keyword for automatic storage duration (explicit)
+- `register`: Keyword to suggest storing a variable in a register
+
+```c
+#include <stdio.h>
+
+void register_example() {
+    // Hint to the compiler to use a register for 'counter'
+    register int counter;
+    for (counter = 0; counter < 5; counter++) {
+        printf("%d ", counter);
+    }
+    // The following line would be a compiler error:
+    // int *ptr = &counter; // ERROR: cannot take address of register variable
+}
+
+int main() {
+    register_example();
+    return 0;
+}
+```
+
+### 25.4. Memory Layout of a C Program
+
+A compiled C program's memory is organized into several segments. Understanding this helps visualize where different types of variables are stored.
+
+#### Generic Syntax
+```c
+// These variables are placed in different memory segments
+int global_var = 10;          // Data segment (initialized)
+int uninitialized_global;     // BSS segment (zero-initialized)
+
+int main() {
+    static int static_var = 20; // Data segment
+    int local_var = 30;          // Stack
+    int *heap_var = malloc(sizeof(int)); // Heap
+    *heap_var = 40;
+    
+    // Printing their addresses shows their locations
+    printf("Address of main (Code): %p\n", (void*)main);
+    printf("Address of global_var (Data): %p\n", (void*)&global_var);
+    printf("Address of static_var (Data): %p\n", (void*)&static_var);
+    printf("Address of uninitialized_global (BSS): %p\n", (void*)&uninitialized_global);
+    printf("Address of local_var (Stack): %p\n", (void*)&local_var);
+    printf("Address of heap_var (Heap): %p\n", (void*)heap_var);
+    
+    free(heap_var);
+    return 0;
+}
+```
+
+#### Syntax Breakdown
+- **Code Segment (Text Segment)**: Stores the compiled machine code of the program. It's typically read-only.
+- **Data Segment**: Stores **initialized** global variables and `static` variables.
+- **BSS Segment**: Stores **uninitialized** global and `static` variables. The OS loads this segment with zeros.
+- **Heap**: Used for dynamic memory allocation (`malloc`). Grows upwards from lower addresses.
+- **Stack**: Used for local variables, function parameters, and return addresses. Grows downwards from higher addresses.
+
 ## 26. Number Systems: Binary and Hexadecimal
 
 While we use decimal (base 10) in daily life, computers operate in binary (base 2). Hexadecimal (base 16) is a convenient shorthand for representing binary data.
@@ -1614,6 +2961,16 @@ While we use decimal (base 10) in daily life, computers operate in binary (base 
 -   8 bits make a **byte**.
 -   **Relevance:** Bitwise operators (`&`, `|`, `^`, `<<`, `>>`) directly manipulate the binary representation of numbers. Understanding binary is key to using them effectively.
 
+#### Generic Syntax
+```c
+// Binary literal (C23 standard, widely supported as extension)
+data_type variable = 0b101010;
+```
+
+#### Syntax Breakdown
+- `0b`: Prefix indicating a binary literal
+- `101010`: Binary digits
+
 **Example:** The number `13` in binary is `00001101`.
 `(8 * 1) + (4 * 1) + (2 * 0) + (1 * 1) = 13`
 
@@ -1622,6 +2979,16 @@ While we use decimal (base 10) in daily life, computers operate in binary (base 
 -   Uses digits 0-9 and letters A-F.
 -   `A=10`, `B=11`, `C=12`, `D=13`, `E=14`, `F=15`.
 -   **Relevance:** One hex digit represents exactly 4 bits (a **nibble**). This makes it perfect for representing memory addresses and byte-level data in a compact, human-readable form.
+
+#### Generic Syntax
+```c
+// Hexadecimal literal
+data_type variable = 0x1A;
+```
+
+#### Syntax Breakdown
+- `0x`: Prefix indicating a hexadecimal literal
+- `1A`: Hexadecimal digits
 
 | Binary | Hex | Decimal |
 |---|---|---|
@@ -1635,8 +3002,20 @@ While we use decimal (base 10) in daily life, computers operate in binary (base 
 
 Modern C (C99 and later) allows you to write numbers directly in these bases.
 
--   **Hexadecimal Prefix:** `0x` or `0X`
--   **Binary Prefix:** `0b` or `0B` (part of C++14 and a common GCC/Clang extension, not standard C until C23, but widely supported).
+#### Generic Syntax
+```c
+// Hexadecimal literal
+data_type variable = 0xHexDigits;
+
+// Binary literal (C23 standard, widely supported as extension)
+data_type variable = 0bBinaryDigits;
+```
+
+#### Syntax Breakdown
+- `0x`: Prefix indicating a hexadecimal literal
+- `HexDigits`: Hexadecimal digits (0-9, A-F)
+- `0b`: Prefix indicating a binary literal
+- `BinaryDigits`: Binary digits (0-1)
 
 ```c
 #include <stdio.h>
@@ -1665,6 +3044,22 @@ C is a powerful but unforgiving language. Many bugs stem from a few common mista
 ### 27.1. Buffer Overflows
 
 This is one of the most dangerous and common security vulnerabilities in C. It occurs when you write data past the end of an allocated block of memory (like an array).
+
+#### Generic Syntax
+```c
+// Unsafe operation
+strcpy(destination, source); // No size checking
+
+// Safe operation
+strncpy(destination, source, size - 1);
+destination[size - 1] = '\0'; // Ensure null-termination
+```
+
+#### Syntax Breakdown
+- `strcpy()`: Unsafe string copy function
+- `strncpy()`: Safer string copy function with size limit
+- `size`: Size of the destination buffer
+- `'\0'`: Null terminator
 
 -   **Cause**: Using unsafe functions like `strcpy`, `sprintf`, `gets` (never use `gets`), or incorrect loop bounds.
 -   **Prevention**: Use safe functions that limit the number of characters written, like `strncpy`, `snprintf`, and `fgets`. Always be mindful of array sizes.
@@ -1695,6 +3090,26 @@ int main() {
 
 A memory leak happens when you allocate memory on the heap with `malloc` (or `calloc`/`realloc`) but forget to free it with `free`. The program's memory usage grows over time, which can crash the system.
 
+#### Generic Syntax
+```c
+// Memory allocation
+pointer_type pointer = (pointer_type)malloc(size);
+
+// Memory leak (forgetting to free)
+// free(pointer); // This is missing!
+
+// Correct usage
+pointer_type pointer = (pointer_type)malloc(size);
+// Use the memory
+free(pointer); // Don't forget to free!
+pointer = NULL; // Good practice
+```
+
+#### Syntax Breakdown
+- `malloc()`: Function to allocate memory
+- `free()`: Function to deallocate memory
+- `pointer`: Pointer to the allocated memory
+
 -   **Cause**: Forgetting to call `free()` for every `malloc()`.
 -   **Prevention**: For every `malloc`, there must be a corresponding `free`. A good rule of thumb is to `free` memory in the same scope where it was allocated, or to have a clear "destroy" function for complex data structures.
 
@@ -1721,6 +3136,24 @@ void no_leak() {
 ### 27.3. Dangling Pointers
 
 A dangling pointer is a pointer that points to memory that has been freed or is no longer valid. Dereferencing a dangling pointer leads to **undefined behavior**—it might work, it might crash, or it might silently corrupt data.
+
+#### Generic Syntax
+```c
+// Creating a dangling pointer
+pointer_type pointer = (pointer_type)malloc(size);
+free(pointer);
+// pointer is now a dangling pointer
+
+// Returning a dangling pointer
+pointer_type bad_function() {
+    data_type local_variable;
+    return &local_variable; // ERROR: Returning address of a local variable!
+}
+```
+
+#### Syntax Breakdown
+- `free()`: Function that creates a dangling pointer when used
+- `&local_variable`: Address of a local variable (becomes invalid when function returns)
 
 -   **Cause**: Accessing memory after `free`ing it, or returning a pointer to a local variable from a function.
 -   **Prevention**: Set a pointer to `NULL` immediately after you `free` it. Never return the address of a local variable.
@@ -1761,6 +3194,24 @@ int main() {
 
 A classic logic error where you iterate one time too many or one time too few. This is common with loops and array indexing.
 
+#### Generic Syntax
+```c
+// Off-by-one error (iterating too many times)
+for (int i = 0; i <= size; i++) { // Should be i < size
+    array[i] = value; // Accesses array[size], which is out of bounds
+}
+
+// Off-by-one error (iterating too few times)
+for (int i = 1; i < size; i++) { // Should be i = 0
+    array[i] = value; // Misses array[0]
+}
+```
+
+#### Syntax Breakdown
+- `i <= size`: Condition that causes off-by-one error (should be `i < size`)
+- `i = 1`: Initialization that causes off-by-one error (should be `i = 0`)
+- `array[i]`: Access that may be out of bounds
+
 -   **Cause**: Using incorrect loop conditions, like `i <= size` instead of `i < size` when iterating through an array of `size` elements.
 -   **Prevention**: Be meticulous with loop bounds. Remember that C arrays are 0-indexed, so a 5-element array has valid indices `0, 1, 2, 3, 4`.
 
@@ -1785,4 +3236,4 @@ int main() {
 
     return 0;
 }
-	```
+```

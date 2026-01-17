@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Quickrefs/C Programming Cheatsheet.md",
+                "file": "Quickrefs/C Programming Reference.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "C Programming Cheatsheet"
+              "title": "C Programming Reference"
             }
           }
         ]
@@ -183,10 +183,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "178e75dceb997a18",
+  "active": "db71786f8f0375a2",
   "lastOpenFiles": [
-    "Quickrefs/Quick Ref.md",
-    "Quickrefs/C Programming Cheatsheet.md",
+    "ASCII Table.png",
+    "ascii_table-3317875283.png",
+    "Quickrefs/C Programming Reference.md",
+    "Quickrefs/Quiz svar.md",
+    "Quickrefs/C Cheatsheet.md",
     "Quickrefs",
     "K10 CHP 10 - Structs.md",
     "K 7&8 CHP 7 - Array Pointers.md",
@@ -201,7 +204,6 @@
     "Pictures/K13 CHP 9 - Recursion/Pasted image 20251126202805.png",
     "Pictures/K13 CHP 9 - Recursion/Pasted image 20251126201239.png",
     "Pictures/K13 CHP 9 - Recursion/Pasted image 20251126200429.png",
-    "Pictures/K13 CHP 9 - Recursion/Pasted image 20251126200419.png",
     "Pictures/K13 CHP 9 - Recursion",
     "Pictures/K10 CHP 10 - Structs",
     "Pictures/K 9 CHP 8 - Strings",
