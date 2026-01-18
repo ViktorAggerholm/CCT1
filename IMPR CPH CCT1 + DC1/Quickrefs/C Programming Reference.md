@@ -766,6 +766,45 @@ int main() {
 3.  **Inside the Function**: The parameters `num1_ptr` and `num2_ptr` now hold the addresses of `a` and `b`. By using the **dereference operator `*`** (e.g., `*num1_ptr`), the function can access and modify the actual data stored at those addresses.
 4.  **Result**: Because the function operated directly on the memory locations of `a` and `b`, their values in `main` are permanently changed after the function call.
 
+```c
+#include <stdio.h> // 1. Inkluder stdio.h for printf og scanf
+
+// 2. Funktionen skal tage en POINTER til en int, ikke en int-kopi.
+//    Vi kalder den x_ptr for at gøre det klart, at det er en pointer.
+void load(int *x_ptr) {
+    // 3. For at få værdien, som pointeren peger på, bruger vi * (indirection).
+    printf("x var %d, ", *x_ptr);
+
+    // 4. scanf skal have en adresse. x_ptr er allerede en adresse,
+    //    så vi sender den direkte.
+    scanf("%d", x_ptr);
+}
+
+int main(void) {
+    int x = 0;
+    
+    // 5. Vi kalder load med ADRESSEN på x, ikke dens værdi.
+    //    &-operatoren giver os adressen.
+    load(&x);
+    
+    // 6. Nu vil x have den værdi, som brugeren indtastede.
+    printf("x er nu %d.", x);
+    
+    return 0;
+}
+```
+
+#### Hvorfor virker denne version?
+
+1. **`void load(int *x_ptr)`**: I stedet for at tage en `int`, tager funktionen nu en `int *` (en pointer til en `int`). Det betyder, at den modtager en hukommelsesadresse.
+2. **`printf("x var %d, ", *x_ptr)`**: Inden i `load` er `x_ptr` adressen. For at se den _værdi_, der ligger på den adresse, bruger vi `*x_ptr`.
+3. **`scanf("%d", x_ptr)`**: `scanf` har brug for at vide, _hvor_ den skal gemme det tal, den læser. Vi giver den adressen direkte, hvilket er præcis, hvad den vil have.
+4. **`load(&x)`**: I `main` bruger vi `&x` til at sende _adressen_ på vores variabel `x` til `load`-funktionen.
+5. **`printf("x er nu %d.", x)`**: Fordi `load`-funktionen modtog adressen på `x` og ændrede værdien på den adresse, er den oprindelige `x` i `main` nu opdateret.
+
+Når du kører dette program og indtaster `5`, vil outputtet være præcis, som du ønskede:
+
+**x var 0, x er nu 5.**
 ## 4. Arrays and Strings
 
 ### 4.1. Arrays
@@ -864,6 +903,20 @@ int main() {
 }
 ```
 
+```C
+int main (void) {
+char str[] = "IMPR"; // str indeholder: {'I', 'M', 'P', 'R', '\0'}
+char c = 'C';       // c starter som 'C', men denne værdi bliver overskrevet med det samme
+int i = 0;          // i starter som 0
+while ((c = str[++i])) { printf("%c", c); }
+
+// ++i (Pre-increment): Først inkrementeres i. i går fra 0 til 1.
+// str[i] (Array-adgang): Værdien på den nye plads i str hentes. Altså str[1], som er 'M'.
+// c = ... (Assignment): Værdien ('M') tildeles variablen c.
+// Betingelsestjek: Hele tildelingsudtryk (c = 'M') evalueres til den værdi, der blev tildelt ('M'). Da 'M' ikke er null-tegnet (\0), er betingelsen sand, og løkkens krop køres.
+
+return 0; }
+```
 ### 4.3. Multidimensional Arrays
 
 Arrays can have more than one dimension, creating a matrix-like structure. The most common is a 2D array.
@@ -1255,6 +1308,37 @@ int main() {
 }
 ```
 
+```c
+#include <stdio.h>
+
+// Struct-definitionen er korrekt
+typedef struct {
+  double a;
+  char b; 
+  int c;
+} s_t;
+
+// Funktionen skal tage en pointer til en s_t som parameter
+void foo(s_t *x) {
+  // Vi bruger -> operatoren til at tilgå felterne via pointeren "x" der pointer til addressen givet som aktuel parameter.
+  printf("%lf, %c, %d\n", x->a, x->b, x->c);
+}
+
+int main(void) {
+  s_t x; // Erklærer en variabel af typen s_t
+  
+  // Initialiserer felterne
+  x.c = 9000;
+  x.b = 'X';
+  x.a = 12.345;
+
+  // Kalder foo med adressen på x
+  foo(&x);
+  
+  return 0;
+}
+```
+
 ## 7. Dynamic Memory Allocation
 
 Static variables (like global variables and arrays) have their memory allocated at compile time. Dynamic memory allocation allows you to request memory at **runtime** from the **heap**.
@@ -1321,6 +1405,44 @@ int main() {
 > [!important] When to `free`
 > You should `free` memory when you are certain you will no longer need it. A common pattern is to `free` memory in the same function or scope where it was allocated, or in the corresponding "cleanup" or "destructor" part of your program logic. For data structures like linked lists, you must free each node individually when you destroy the list.
 
+```c
+#include <stdio.h>
+#include <stdlib.h> // <-- Nødvendig for malloc og free
+
+char* get_text(){
+    char* s = (char*)malloc(100*sizeof(char));
+    scanf("%99s", s);
+    return s;
+}
+
+int main(void){
+    const int size = 20;
+    char* s = NULL;
+    char** arr = (char**)malloc(size*sizeof(char*));
+
+    for (int i = 0; i < size; i++){
+        s = get_text();
+        arr[i] = s;
+    }
+
+    for (int i = 0; i < size; i++) {
+        s = arr[i];
+        printf("%s\n",s);
+    }
+
+    // --- Deallokeringsfase starter her ---
+
+    // 1. Frigiv hver enkelt streng, der er allokeret i get_text()
+    for (int i = 0; i < size; i++) {
+        free(arr[i]); // <-- Frigiv hukommelsen for hver streng
+    }
+
+    // 2. Frigiv selve arrayet af pointere
+    free(arr); // <-- Frigiv hukommelsen for pointer-arrayet
+
+    return 0;
+}
+```
 ## 8. Advanced Data Structures: Linked Lists
 
 A linked list is a chain of **nodes**, where each node contains data and a pointer to the next node in the sequence. This is a perfect example of combining [[#6. Structs]], [[#5. Pointers (The Core of Advanced C)]], and [[#7. Dynamic Memory Allocation]].
@@ -1418,6 +1540,44 @@ int main() {
 }
 ```
 
+```c
+typedef struct node_t {
+    int key;
+    char name[10];
+    struct node_t* next;
+} node_t;
+
+node_t* find_last(node_t* node, int k) {
+    node_t* r = NULL;                 // Initialiser resultat-pointer til NULL
+    while (node != NULL) {            // Fortsæt så længe vi ikke er nået til enden af listen
+        if (node->key == k) {         // Tjek om den nuværende nodes key matcher k
+            r = node;                 // Hvis ja, opdater r til at pege på denne node
+        }
+        node = node->next;            // Gå videre til næste node i listen
+    }
+    return r;                         // Returner den sidste fundne node (eller NULL)
+}
+```
+
+#### Forklaring af logikken
+1. **`node_t* r = NULL;`**
+    
+    - Vi starter med at oprette en pointer `r`, som skal holde på resultatet. Vi initialiserer den til `NULL`. Dette er vores standardværdi, som vil blive returneret, hvis vi ikke finder nogen node med den ønskede `key`.
+2. **`while (node != NULL)`**
+    
+    - Vi starter en `while`-løkke, der kører, så længe `node`-parameteren (som starter ved listens hoved) ikke er `NULL`. Dette sikrer, at vi gennemgår hele listen fra start til slut.
+3. **`if (node->key == k)`**
+    
+    - Indeni løkken tjekker vi for hver node, om dens `key`-felt er lig med den `key`, vi leder efter (`k`).
+4. **`r = node;`**
+    
+    - Hvis vi finder et match, opdaterer vi vores resultat-pointer `r` til at pege på den _nuværende_ node. Ved at gøre dette i _hvert_ match, sikrer vi, at `r` til sidst vil pege på det **sidste** match, vi fandt, da eventuelle tidligere matches bliver overskrevet.
+5. **`node = node->next;`**
+    
+    - Efter at have tjekket den nuværende node, flytter vi `node`-pointeren videre til næste element i listen (`node->next`), så løkken kan behandle det i næste iteration.
+6. **`return r;`**
+    
+    - Når løkken er færdig (altså `node` er blevet `NULL`), returnerer vi `r`. Hvis vi fandt mindst ét match, vil `r` pege på det sidste. Hvis vi ikke fandt nogen, vil `r` stadig være `NULL`, hvilket er den korrekte returværdi i det tilfælde.
 ## 9. File I/O (Input/Output)
 
 File I/O allows your program to read data from and write data to files on the disk, making data persistent between program runs.
@@ -1718,6 +1878,71 @@ int main() {
 > [!caution] Stack Overflow
 > Each recursive call adds a new frame to the program's call stack. If the recursion is too deep or the base case is never reached, you can cause a **stack overflow**, crashing your program.
 
+```c
+int f(int x){
+if (x < 0) return x;
+return f(x-1) + (2 * x);
+}
+```
+Beregning af `f(-1)`
+Dette er det simpleste tilfælde, da det rammer basistilfældet med det samme.
+1. `f(-1)` tjekker `if (-1 < 0)`. Betingelsen er sand.
+2. Funktionen returnerer `x`, som er **-1**.
+
+Beregning af `f(1)`
+Dette kræver et rekursivt kald.
+3. `f(1)` tjekker `if (1 < 0)`. Betingelsen er falsk.
+4. Funktionen beregner `f(1-1) + (2 * 1)`, hvilket er `f(0) + 2`.
+5. For at finde resultatet, skal vi beregne `f(0)`:
+    - `f(0)` tjekker `if (0 < 0)`. Betingelsen er falsk.
+    - `f(0)` beregner `f(0-1) + (2 * 0)`, hvilket er `f(-1) + 0`.
+    - Vi ved allerede, at `f(-1)` er **-1**.
+    - Så `f(0)` returnerer `-1 + 0 = -1`.
+6. Nu kan vi sætte resultatet af `f(0)` ind i beregningen af `f(1)`:
+    - `f(1)` = `f(0) + 2` = `(-1) + 2` = **1**.
+
+Beregning af `f(2)`
+Dette kræver to niveauer af rekursion.
+1. `f(2)` tjekker `if (2 < 0)`. Betingelsen er falsk.
+2. Funktionen beregner `f(2-1) + (2 * 2)`, hvilket er `f(1) + 4`.
+3. Vi har allerede beregnet, at `f(1)` er **1**.
+4. Nu kan vi sætte resultatet af `f(1)` ind i beregningen af `f(2)`:
+    - `f(2)` = `f(1) + 4` = `1 + 4` = **5**.
+
+```c
+int gcd(int a, int b){
+	if (b<0){
+		return gcd(a,-b);
+	}
+	if (b == 0){
+		return a;
+	}
+	return gcd(b, a%b);
+}
+```
+#### Eksempel: `gcd(48, 18)`
+Lad os følge rekursionen for at se, hvordan den finder GCD for 48 og 18:
+1. **`gcd(48, 18)`**:
+    
+    - `b` er ikke negativ.
+    - `b` er ikke 0.
+    - Returnerer `gcd(18, 48 % 18)`, som er `gcd(18, 12)`.
+2. **`gcd(18, 12)`**:
+    
+    - `b` er ikke negativ.
+    - `b` er ikke 0.
+    - Returnerer `gcd(12, 18 % 12)`, som er `gcd(12, 6)`.
+3. **`gcd(12, 6)`**:
+    
+    - `b` er ikke negativ.
+    - `b` er ikke 0.
+    - Returnerer `gcd(6, 12 % 6)`, som er `gcd(6, 0)`.
+4. **`gcd(6, 0)`**:
+    
+    - `b` er 0.
+    - **Basistilfældet er nået!** Funktionen returnerer `a`, som er **6**.
+
+Resultatet bliver altså **6**, hvilket er korrekt, da de største fælles divisorer for 48 (1, 2, 3, 4, 6, 8, 12, 16, 24, 48) og 18 (1, 2, 3, 6, 9, 18) er {1, 2, 3, 6}, hvoraf 6 er den største.
 ## 12. The C Preprocessor
 
 The preprocessor runs before the compiler. It processes directives that start with `#`.
